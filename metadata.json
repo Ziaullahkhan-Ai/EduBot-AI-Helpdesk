@@ -1,0 +1,7 @@
+{
+  "name": "EduBot: AI Student Helpdesk",
+  "description": "A comprehensive AI-powered student support platform featuring real-time chat, query categorization, sentiment analysis, and a simulated WhatsApp/Facebook integration dashboard.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
