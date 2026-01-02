@@ -34,8 +34,20 @@ export const db = {
     }
     localStorage.setItem(STORAGE_KEYS.CONVERSATIONS, JSON.stringify(conversations));
   },
+  updateConversationStatus: (id: string, status: Conversation['status']) => {
+    const conversations = db.getConversations();
+    const index = conversations.findIndex(c => c.id === id);
+    if (index >= 0) {
+      conversations[index].status = status;
+      localStorage.setItem(STORAGE_KEYS.CONVERSATIONS, JSON.stringify(conversations));
+    }
+  },
   deleteConversation: (id: string) => {
     const conversations = db.getConversations().filter(c => c.id !== id);
     localStorage.setItem(STORAGE_KEYS.CONVERSATIONS, JSON.stringify(conversations));
+  },
+  resetData: () => {
+    localStorage.removeItem(STORAGE_KEYS.CONVERSATIONS);
+    localStorage.setItem(STORAGE_KEYS.FAQS, JSON.stringify(INITIAL_FAQS));
   }
 };
